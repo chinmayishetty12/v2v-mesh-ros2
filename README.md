@@ -9,12 +9,15 @@ ROS 2 (Python) V2V mesh communication node for a mining-vehicle safety system, b
 - Publishes them live on `/v2v/neighbor_vehicles` so the AI Risk Prediction and Sensor Fusion modules can subscribe, e.g. for blind corners or fog where cameras/LiDAR fail
 
 ## Run
+Requires ROS 2 installed and sourced in each terminal.
+
 ```bash
-source /opt/ros/<distro>/setup.bash
+# Terminal 1
 python3 v2v_mesh_node.py --ros-args -p vehicle_id:=4
+
+# Terminal 2
 ros2 topic echo /v2v/neighbor_vehicles
 ```
-
 ## Message format
 `std_msgs/String`: `ID:<id> | Rel_X:<m> | Rel_Y:<m>`
 
